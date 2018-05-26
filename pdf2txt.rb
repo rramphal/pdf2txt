@@ -4,8 +4,7 @@ def get_all_filenames_from_directory dir
   return Dir[ File.join(dir, '**', '*') ].reject { |file| File.directory? file }
 end
 
-dir = "#{Dir.pwd}/pdf"
-filenames = get_all_filenames_from_directory dir
+filenames = get_all_filenames_from_directory Dir.pwd
 
 unless filenames.empty?
   filenames.each do |filename|
