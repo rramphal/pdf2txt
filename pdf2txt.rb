@@ -1,27 +1,27 @@
 require "pdf-reader"
 
-def get_all_files_from_directory dir
+def get_all_filenames_from_directory dir
   return Dir[ File.join(dir, '**', '*') ].reject { |file| File.directory? file }
 end
 
 dir = "#{Dir.pwd}/pdf"
-files = get_all_files_from_directory dir
+filenames = get_all_filenames_from_directory dir
 
-unless files.empty?
-  files.each do |file|
-    reader = PDF::Reader.new file
+unless filenames.empty?
+  filenames.each do |filename|
+    reader = PDF::Reader.new filename
 
-    name = file.scan(/.+\/(.+?)\.pdf/).first.first
+    name = filename.scan(/.+\/(.+?)\.pdf/).first.first
     puts name
 
-    file_store = []
+    pages_text = []
 
     reader.pages.each do |page|
-      file_store << page.text
+      pages_text << page.text
     end
 
     File.open("#{name}.txt", 'w') do |file|
-      file.puts file_store
+      file.puts pages_text
     end
   end
 end
