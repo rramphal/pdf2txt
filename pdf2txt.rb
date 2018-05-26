@@ -11,8 +11,8 @@ unless files.empty?
   files.each do |file|
     reader = PDF::Reader.new file
 
-    number = file.scan(/.*?SPI(\d{3}).pdf/).first.first
-    puts number
+    name = file.scan(/.+\/(.+?)\.pdf/).first.first
+    puts name
 
     file_store = []
 
@@ -20,7 +20,7 @@ unless files.empty?
       file_store << page.text
     end
 
-    File.open("temp_#{number}.txt", 'w') do |file|
+    File.open("#{name}.txt", 'w') do |file|
       file.puts file_store
     end
   end
