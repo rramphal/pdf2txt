@@ -1,10 +1,18 @@
 # pdf2txt
 
-This was an quick script I wrote back in 2015 to extract text from a directory of PDFs. You have to copy the ruby script into the folder with the PDFs and then run `ruby pdf2txt.rb`.
-
-Now, I just do this:
+NOTE: You can use this instead:
 
 ```
 brew install poppler
 pdftotext [FILENAME.pdf]
+```
+
+---
+
+# Usage
+
+```shell
+ruby pdf2txt.rb [directory_path]
+# or
+ruby pdf2txt.rb [file_path]
 ```
