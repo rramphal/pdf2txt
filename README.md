@@ -9,7 +9,7 @@ pdftotext [FILENAME.pdf]
 
 ---
 
-# Usage
+## Usage
 
 ```shell
 ruby pdf2txt.rb [directory_path]
