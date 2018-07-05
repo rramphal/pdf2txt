@@ -1,6 +1,6 @@
 # pdf2txt
 
-NOTE: You can use this instead:
+**NOTE: You can (and should) use this instead:**
 
 ```
 brew install poppler
