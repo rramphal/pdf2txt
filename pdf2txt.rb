@@ -1,7 +1,10 @@
 require "pdf-reader"
 
 def get_all_filenames_from_directory dir
-  return Dir[ File.join(dir, '**', '*') ].reject { |file| File.directory? file }
+  return Dir[ File.join(dir, '**', '*') ]
+    .reject { |file| File.directory? file }
+    .select { |file| file.include? '.pdf' }
+    .sort
 end
 
 filenames = get_all_filenames_from_directory Dir.pwd
